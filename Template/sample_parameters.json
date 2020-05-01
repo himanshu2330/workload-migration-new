@@ -1,0 +1,44 @@
+﻿{
+    "Request": [{
+       "RequestID": "ticket",
+       "RequesterEmailID": "emailrequester"
+     }],
+
+    "Dest": [{
+       "Datacenter": "Datacenter-FMO",
+       "Environment": "Production",
+       "Server": [{
+            "Name": "destination_vcenter_ip",
+            "User": "administrator@vsphere.local",
+            "Pass": "Vmware@123",
+            "ClusterLocations": {
+                "Name": "destination_vcenter_cluster",
+                "Type": "destination_vcenter_cluster"
+             }
+        }],
+       "CpuOverCommit": 3,
+       "MemoryOverCommit": 1,
+       "TemplateCpu": 4,
+       "TemplateMemory": 16,
+       "BufferHosts": 0.00,
+       "HeadroomFileName": "Headroom Report.xlsx"
+    }],
+
+   "Src": [{
+       "Datacenter": "Datacenter-CMO",
+       "Environment": "Production",
+       "Server": [{
+             "Name": "source_vcenter_ip",
+             "User": "administrator@vsphere.local",
+             "Pass": "Vmware@123",
+             "ClusterLocations": {
+                 "Name": "source_vcenter_cluster",
+                 "Type": "source_vcenter_cluster"
+              }
+        }],
+      "MigrateVM": [{
+             "Name": "vm_to_be_migrated",
+             "DestinationPortGroup": "VM Network"
+       }]
+    }]
+}

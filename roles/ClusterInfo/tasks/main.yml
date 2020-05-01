@@ -1,0 +1,13 @@
+###############################################################################
+#Ansible Role For VM workload migration                                       #
+#                                                                             #
+#File Name: main.yml                                                          #
+#Powered by DELL CONSULTING SERVICES                                          #
+###############################################################################
+#Developer - Dinesh Kumar Ginwali                                             #
+###############################################################################
+#Purpose Of The Script : run the other tasks that actually do the work        #
+###############################################################################
+
+---
+- include: clusterInfo.yml

@@ -1,0 +1,112 @@
+
+################################################################################
+##Ansible Playbook For VM Workload Migration -                                 #
+##File Name: main.yml                                                          #
+################################################################################
+##Powered by DELL CONSULTING SERVICES                                          #
+################################################################################
+##Developer - Dinesh Kumar Ginwali ; Himanshu Sekhar                           #
+################################################################################
+##Purpose Of The Ssript : Main file to start VM  validation and migration      #
+################################################################################
+---
+
+ - name: VM Workload Migration
+   hosts: localhost
+   gather_facts: false
+   vars_files:
+     - var.yml
+   tasks:
+   
+################################################################################
+##Collect Destination Cluster Information                                      #
+################################################################################
+ #   - include_role:
+ #       name: ClusterInfo
+    - name: Collect Destination Cluster Information
+      shell: ./Scripts/ClusterInfo.ps1
+      args:
+        chdir: "{{ WorkingDirectory }}"
+        executable: /usr/bin/pwsh
+      register: ClusterInfo
+      tags:
+        - ClusterInfo
+
+#    - name: print info
+#      debug:
+#        msg: "{{ ClusterInfo }}"
+#      tags:
+#        - ClusterInfo
+################################################################################
+##Collect Source VM Information                                                #
+################################################################################
+ #   - include_role:
+ #       name: VMInfo
+    - name: Collect Source VM Information
+      shell: ./Scripts/VMInfo.ps1
+      args:
+        chdir: "{{ WorkingDirectory }}"
+        executable: /usr/bin/pwsh
+      register: VMInfo
+      tags:
+        - VMInfo
+################################################################################
+##Validate resources at cluster to migrate VM                                  #
+################################################################################
+ #   - include_role:
+ #       name: Validate
+    - name: Validate resources at cluster to migrate VM
+      shell: ./Scripts/Validation.ps1
+      args:
+        chdir: "{{ WorkingDirectory }}"
+        executable: /usr/bin/pwsh
+      register: Validation
+      tags:
+        - Validate
+
+#    - name: print validation
+#      debug:
+#        msg: "{{ Validation }}"
+#      tags:
+#        - Validate
+################################################################################
+##Push emial notification to requester                                         #
+################################################################################
+ #   - include_role:
+ #       name: Email
+    - name: Push email notification to requester
+      shell: ./Scripts/Email.ps1
+      args:
+        chdir: "{{ WorkingDirectory }}"
+        executable: /usr/bin/pwsh
+      register: Email
+      tags:
+        - Email      
+
+#    - name: print info
+#      debug:
+#        msg: "{{ Email }}"
+#      tags:
+#        - Email
+
+################################################################################
+##Migrate VM from Source vCenter cluster to destination vCenter cluster        #
+################################################################################    
+  #  - include_role:
+  #      name: MigrateVM
+    - name: Migrate VM
+      shell: ./Scripts/MigrateVM.ps1
+      args:
+        chdir: "{{ WorkingDirectory }}"
+        executable: /usr/bin/pwsh
+      register: Migrate 
+      tags:
+        - MigrateVM            
+      
+#    - name: print info
+#      debug:
+#        msg: "{{ Migrate }}"
+#      tags:
+#        - MigrateVM
+      
+ 

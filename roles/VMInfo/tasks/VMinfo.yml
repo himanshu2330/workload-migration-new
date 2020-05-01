@@ -1,0 +1,21 @@
+###############################################################################
+#Ansible Role For VM workload Migration :                                     #
+#                                                                             #
+#File Name: VMinfo.yml                                                        #
+#Powered by DELL CONSULTING SERVICES                                          #
+###############################################################################
+#Developer - Dinesh Kumar Ginwali                                             #
+###############################################################################
+#Purpose Of The Script : Collects requested Migrating VM info                 #
+#                                                                             #
+###############################################################################
+---
+################################################################################
+##Collect Source VM Information                                                #
+################################################################################
+  - name: Collect Source VM Information
+    win_shell: \VMInfo.ps1
+    args:
+      chdir: opt\workload_migration_dinesh\
+      executable: /usr/bin/pwsh
+    register: VMInfo

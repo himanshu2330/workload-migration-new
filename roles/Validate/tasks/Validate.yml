@@ -1,0 +1,21 @@
+###############################################################################
+#Ansible Role For VM workload Migration :                                     #
+#                                                                             #
+#File Name: Validate.yml                                                      #
+#Powered by DELL CONSULTING SERVICES                                          #
+###############################################################################
+#Developer - Dinesh Kumar Ginwali                                             #
+###############################################################################
+#Purpose Of The Script : Validate resources at cluster to migrate VM          #
+#                                                                             #
+###############################################################################
+---
+################################################################################
+##Validate resources at cluster to migrate VM                                  #
+################################################################################
+  - name: Validate resources at cluster to migrate VM
+    win_shell: \Validation.ps1
+    args:
+      chdir: opt\workload_migration_dinesh\
+      executable: /usr/bin/pwsh
+    register: Validation

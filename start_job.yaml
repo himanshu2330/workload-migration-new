@@ -1,0 +1,11 @@
+---
+- hosts: all
+  connection: local
+  gather_facts: no
+  tasks:
+  - name: Run a script
+    script: start_workload_migration.sh
+    register: test
+  - name: print script result
+    debug:
+      msg: "{{ test }}" 

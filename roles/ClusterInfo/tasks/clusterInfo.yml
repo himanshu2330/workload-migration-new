@@ -1,0 +1,21 @@
+###############################################################################
+#Ansible Role For VM workload Migration : Get cluster information             #
+#                                         and create report                   #
+#File Name: clusterInfo.yml                                                   #
+#Powered by DELL CONSULTING SERVICES                                          #
+###############################################################################
+#Developer - Dinesh Kumar Ginwali                                             #
+###############################################################################
+#Purpose Of The Script : Get cluster information and create excel report      #
+#                                                                             #
+###############################################################################
+---
+###############################################################################
+#Collect Destination Cluster Information                                      #
+###############################################################################
+  - name: Collect Destination Cluster Information
+    win_shell: \ClusterInfo.ps1
+    args:
+      chdir: opt\workload_migration_dinesh\
+      executable: /usr/bin/pwsh
+    register: ClusterInfo

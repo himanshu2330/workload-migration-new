@@ -1,0 +1,21 @@
+###############################################################################
+#Ansible Role For VM workload Migration :                                     #
+#                                                                             #
+#File Name: Email.yml                                                         #
+#Powered by DELL CONSULTING SERVICES                                          #
+###############################################################################
+#Developer - Dinesh Kumar Ginwali                                             #
+###############################################################################
+#Purpose Of The Script : Send email with cluster information report           #
+#                        and validation report                                #
+###############################################################################
+---
+################################################################################
+##Push emial notification to requester                                         #
+################################################################################
+  - name: Push emial notification to requester
+    win_shell: \Email.ps1
+    args:
+      chdir: opt\workload_migration_dinesh\
+      executable: /usr/bin/pwsh
+    register: Email

@@ -1,0 +1,21 @@
+###############################################################################
+#Ansible Role For VM workload Migration :                                     #
+#                                                                             #
+#File Name: MigrateVM.yml                                                         #
+#Powered by DELL CONSULTING SERVICES                                          #
+###############################################################################
+#Developer - Dinesh Kumar Ginwali                                             #
+###############################################################################
+#Purpose Of The Script : Migrate VM from Source vCenter to destination vCenter#           #
+#                                                                             #
+###############################################################################
+---
+################################################################################
+##Migrate VM from Source vCenter cluster to destination vCenter cluster        #
+################################################################################
+  - name: Migrate VM
+    win_shell: \MigrateVM.ps1
+    args:
+      chdir: opt\workload_migration_dinesh\
+      executable: /usr/bin/pwsh
+    register: Migrate

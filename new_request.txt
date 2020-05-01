@@ -1,0 +1,1 @@
+Request-1,'vm_to_be_migrated':'webserver-1','source_vcenter_ip':'192.168.179.140','destination_vcenter_ip':'192.168.179.141','source_vcenter_cluster':'CMO','destination_vcenter_cluster':'FMO','requester_email':'h.shekhar@emc.com'
