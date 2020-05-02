@@ -12,7 +12,7 @@
 ---
 
  - name: VM Workload Migration
-   hosts: localhost
+   hosts: client1
    gather_facts: false
    vars_files:
      - var.yml
