@@ -10,11 +10,11 @@ do
  
   ansible-playbook main.yml --tags='Validate'
 
-  ansible-playbook main.yml --tags='Email'
+#  ansible-playbook main.yml --tags='Email'
 
 #  ansible-playbook main.yml --tags='MigrateVM'
 
-#  rm -rf Parameter/parameters.json
+  rm -rf Parameter/parameters.json
 
 done
 
