@@ -51,11 +51,11 @@
       tags:
         - VMInfo
 
-#    - name: print validation
-#      debug:
-#        msg: "{{ VMInfo }}"
-#      tags:
-#        - VMInfo
+ #   - name: print validation
+ #     debug:
+ #       msg: "{{ VMInfo }}"
+ #     tags:
+ #       - VMInfo
 ################################################################################
 ##Validate resources at cluster to migrate VM                                  #
 ################################################################################
