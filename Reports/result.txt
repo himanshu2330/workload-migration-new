@@ -1,5 +1,0 @@
-Validation Completed : SUCCESS, VM : webserver-1 Can be Migrated to Target Cluster : FMO
-CPU Required at destination cluster : 1, Available CPU  :  18
-Memory Required at destination cluster : 2, Available Memory : 63.999
-Storage Required at destination cluster : 18.1082745268941, Available Storage : 242.500
-Max storage at single datastore available : 158.419
